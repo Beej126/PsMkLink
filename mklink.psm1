@@ -27,7 +27,7 @@ function mklink
     if (test-path $link) { Remove-Item $link }
     New-Item -ItemType SymbolicLink -Name $link -Target $target
 
-    if ($watch -and (Get-Module "watch")) {
+    if ($watch -and (Get-Module "pswatch")) {
         watch $target | ForEach-Object{
             Remove-Item $link
             New-Item -ItemType SymbolicLink -Name $link -Target $target
