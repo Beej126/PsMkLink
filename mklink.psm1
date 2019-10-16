@@ -15,9 +15,9 @@ function mklink
         [switch]$watch = $false
     )
 
-    if ($watch -and !(Get-Module "watch")) {
+    if ($watch -and !(Get-Module "pswatch")) {
         Write-Error "pswatch is not installed. see: https://github.com/Beej126/pswatch"
-        Exit
+        Return
     }
 
     Resolve-Path $target -ErrorAction Stop
